@@ -1,8 +1,11 @@
 #!/bin/bash
 
-COMMAND='nc -lnvp 443'
+read -p "Enter port you would like to listen to? " PORT
+
+
+COMMAND="nc -lnvp $PORT"
 
 CRONLINE="0 17 * * * $COMMAND"
 
-( crontab -l 2>/dev/null | grep -v 'nc -lnvp 443' ; echo "$CRONLINE" ) | crontab -
+( crontab -l 2>/dev/null | grep -v 'nc -lnvp' ; echo "$CRONLINE" ) | crontab -
 
