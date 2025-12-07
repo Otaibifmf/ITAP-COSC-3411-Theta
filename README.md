@@ -1,20 +1,31 @@
-# Port Listener 
+# Scheduled Reverse Shell using Netcat 
 
 ## Ethical Disclaimer
-This project is intended strictly for educational purposes.
+This project is intended **strictly for educational purposes**.
+
+---
 
 ## Explanation
-Our project is a Bash script that automates port listening using Netcat.
-The code is set up by the Attacker where he needs to plug his IP Address and the Port he will be listening on. The attacker can set up a delay if needed.
-Then the netcat command takes in the Attacker's IP and Port and gives him access to the Victim's shell when the Victim runs the file. 
+This project demonstrates how a **scheduled reverse shell connection** can be automated using a *Bash* script and *Netcat*.
+The script starts a **outbound connection** from the **Victim's machine** to the **Attacker's machine** where a **Netcat Listener** is waiting.
 
+The script is configured by the attacker by defining:
+- The Attacker's IP address
+- The listening port
+- An optional execution delay
+
+When the script is executed on the target system, Netcat connects back to the Attacker and gives him access to the Victim's shell.
+
+---
 
 ## How to use
-1. The Attacker plugs the IP and PORT.
+1. The Attacker plugs the IP and PORT in the script.
 2. The Attacker makes the scipt executable `chmod +x Listener.sh`
-3. The Attacker sends the file to a Victim.
+3. The script is sent to the Victim.
 4. The Attacker then starts listening to the port he chose using `nc -lnvp $PORT`.
-5. When the Victim double clicks the file, the Attacker will gain access.
+5. When the Victim executes the file, the Attacker will gain access.
+
+---
 
 ## Demo
 The Attacker starts listening.
